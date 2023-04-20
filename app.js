@@ -18,7 +18,7 @@ app.get("/", (req,res) => {
     res.send("Hello World");
 })
 
-app.get("/api/get_data/:data", (req,res) => { // 값 받을 때  /api/body_data/{데이터}
+app.get("/api/data/:data", (req,res) => { // 값 받을 때  /api/body_data/{데이터}
     const params = req.params
     const data = req.params.data
     let newTime = new Date();
@@ -36,7 +36,7 @@ app.get("/api/get_data/:data", (req,res) => { // 값 받을 때  /api/body_data/
     res.send(params.data)
 })
 
-app.post("/api/go_data", (req, res) => {
+app.post("/api/get_data", (req, res) => {
     let sql = `SELECT * FROM data ORDER BY num DESC limit 1`;
     connection.query(sql, function(err, results, fields){
         if(err){
